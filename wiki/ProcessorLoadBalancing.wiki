@@ -1,0 +1,7 @@
+#summary Distributing Processor Load
+
+Many implementations of dataflow processors process some input to produce some output in a rather stateless fashion. Such processors can be load balanced by creating copies of them and splitting the work between each copy. Suppose a processor P takes input from a single channel I and produces output to a single channel O:
+
+{{{
+I -> P -> O
+}}}
