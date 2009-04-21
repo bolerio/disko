@@ -5,3 +5,21 @@ Many implementations of dataflow processors process some input to produce some o
 {{{
 I -> P -> O
 }}}
+
+so that for each incoming datum x, a single datum y is produced. If the transformation from x to y is time consuming and there are computing resources available, it would be beneficial to create two copies of P, say P1 and P2, and load balance the input between each of them while still making sure that the order of x's and y's is preserved:
+
+{{{
+I -> LoadBalance[P1, P2] -> O
+
+where LoadBalance is a black box made up of the following operations:
+
+I -> Split -> S1, S2
+
+S1 -> P1
+
+S1, S2 -> Combine -> O
+}}}
+
+The Split operation reads input from I and writes alternately to two new channels S1 and S2. S1 becomes the input channel of one of the P1 copy of P while S2 becomes the input channel of the P2 copy of P.
+
+The Combine operation 
