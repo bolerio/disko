@@ -1,0 +1,7 @@
+#summary The implementation of distributed dataflow communication
+
+The implementation relies on the distributed HGDB framework for managing network communication, list of peers and asynchronous activities.
+
+To each dataflow network instance there is a corresponding org.hypergraphdb.peer.workflow.Activity instance that handles all channel communication for the network. The ID of the activity is the persistent handle UUID of the network atom. 
+
+Each dataflow network peer is responsible for initiating such an activity. There is no activity factory registered with the HyperGraphPeer.activityManager and this is on purpose.
