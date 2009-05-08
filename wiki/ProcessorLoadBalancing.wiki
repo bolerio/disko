@@ -24,7 +24,7 @@ S2 -> P2 -> C2
 C1, C2 -> Combine -> O
 }}}
 
-The Split operation reads input from I and writes alternately to two new channels S1 and S2. S1 becomes the input channel of one of the P1 copy of P while S2 becomes the input channel of the P2 copy of P. Then P1 outputs to the new channel C1 while P2 outputs to the new channel P2. Finally, the Combine operation merge the data from channels C1 and C2 input O.
+The Split operation reads input from I and writes alternately to two new channels S1 and S2. S1 becomes the input channel of one of the P1 copy of P while S2 becomes the input channel of the P2 copy of P. Then P1 outputs to the new channel C1 while P2 outputs to the new channel C2. Finally, the Combine operation merge the data from channels C1 and C2 input O.
 
 Thus to the outside world, the operation of processor P remains identical. It is replaced by a more complex black box, but the data travelling channels I and O remains exactly the same and as far as other parts of the system are concerned this is all that matters.
 
