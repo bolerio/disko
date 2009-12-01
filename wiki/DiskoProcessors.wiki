@@ -1,5 +1,7 @@
 #summary List of all predefined Disko Processors.
 
+Disko comes with several predefined text analysis data flow networks. 
+
 The table below contains all implementations of the `disko.flow.Processor` interface bundled with the Disko distribution. All classes listed below are to be found under the `disko.flow.processor` package.
 
 || *Class Name* || *Description* || *Input Channels* || *Output Channels* ||
