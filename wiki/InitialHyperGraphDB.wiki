@@ -11,7 +11,8 @@ discoApp.setName("discoApp");
 org.hypergraphdb.app.management.HGManagement.ensureInstalled(graph, discoApp);
 }}}
 where `graph` is your HGDB instance.
-  # Install the Prolog HGDB integration if Prolog will be used for semantic analysis. This is done with the following code:
+
+Also, install the Prolog HGDB integration if Prolog will be used for semantic analysis. This is done with the following code:
 {{{
 alice.tuprolog.hgdb.PrologHGDBApp prologApp = new alice.tuprolog.hgdb.PrologHGDBApp();
 org.hypergraphdb.app.management.HGManagement.ensureInstalled(graph, prologApp);
