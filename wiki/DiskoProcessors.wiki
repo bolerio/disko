@@ -4,3 +4,4 @@ The table below contains all implementations of the `disko.flow.Processor` inter
 
 || *Class Name* || *Description* || *Input Channels* || *Output Channels* ||
 ||!ScopeCleaner||Remove a scope tree from the HyperGraphDB instance of the current context.||none||none||
+||!ParagraphAnalyzer||Splits the input text into paragraphs.||SIGNAL_DB_CLEAN||PARAGRAPH_CHANNEL||
