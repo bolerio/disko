@@ -8,7 +8,7 @@ svn checkout http://disko.googlecode.com/svn/trunk/ disko
 
 = Directory Structure =
 
-All compile and runtime dependencies are part of the project directory structure. Build scripts and config file are at the top-level. The directories are as follows:
+To make it easy to setup, all compile and runtime dependencies are part of the project directory structure. Some big data files needed by various NLP tools are also checked in SVN. Build scripts and config file are at the top-level. The directories are as follows:
 
 || *Directory Name* || *Description* ||
 || data || Contains the various data files for all NLP processing tools that Disko uses: LinkGrammar, OpenNLP, GATE, Relex etc. ||
@@ -23,3 +23,8 @@ All compile and runtime dependencies are part of the project directory structure
 The code is build with the ANT build system. Use 'ant -p' to see the list of tasks. Type 'ant jar' to build the `disko.jar` file. 
 
 = Running =
+
+Disko uses [http://www.hypergraphdb.org HyperGraphDB] to store processing results as well as for distributed processing. It also relies on the WordNet lexical database. Before you can run it, you will need to create a HyperGraphDB instance populated with WordNet data. Then you can parse a document or a single sentence on the command line and see what gets stored:
+
+  # Create a WordNet HGDB instance by typing something like `ant create-wordnet-db -Dplatform=linux/x86_64 -Ddictionary=$WORDNET_HOME/dict -Ddblocation=/tmp/wordnetdb`. Here, replace the platform parameter with the correct `native` sub-folder containing the native libraries for your platform (e.g. `windows` for Win32bit or `windows/amd64` for 64bit etc.). Replace `$WORDNET_HOME` with the installation directory of WordNet from the previous step. And put whatever location you want for your brand new HGDB instance instead of '/tmp/wordnetdb'
+  # Make a test run by typing `ant run -Dplatform=linux/x86_64 -Dtext=test/trivial-corpus.txt`. Again, replace the platform parameter to point to appropriate native libs for your platform. You can also pass in some other text file to analyze or a single sentence. 
