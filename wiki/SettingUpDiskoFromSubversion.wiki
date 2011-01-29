@@ -24,10 +24,10 @@ The code is build with the ANT build system. Use 'ant -p' to see the list of tas
 
 = Running =
 
-Disko uses [http://www.hypergraphdb.org HyperGraphDB] to store processing results as well as for distributed processing. It also relies on the WordNet lexical database. Before you can run it, you will need to create a HyperGraphDB instance populated with WordNet data. Then you can parse a document or a single sentence on the command line and see what gets stored:
+Disko uses [http://www.hypergraphdb.org HyperGraphDB] to store processing results as well as for distributed processing. It also relies on the !WordNet lexical database. Before you can run it, you will need to create a HyperGraphDB instance populated with !WordNet data. Then you can parse a document or a single sentence on the command line and see what gets stored:
 
   # Download and install WordNet 2.1 from http://wordnet.princeton.edu/wordnet/download/old-versions/. Note that the more recent versions don't work because the Java parsing library JWNL hasn't kept up. 
-  # Create a WordNet HGDB instance by typing something like `ant create-wordnet-db -Dplatform=linux/x86_64 -Ddictionary=$WORDNET_HOME/dict -Ddblocation=/tmp/wordnetdb`. Here, replace the platform parameter with the correct `native` sub-folder containing the native libraries for your platform (e.g. `windows` for Win32bit or `windows/amd64` for 64bit etc.). Replace `$WORDNET_HOME` with the installation directory of WordNet from the previous step. And put whatever location you want for your brand new HGDB instance instead of '/tmp/wordnetdb'
+  # Create a !WordNet HGDB instance by typing something like {{{ant create-wordnet-db -Dplatform=linux/x86_64 -Ddictionary=$WORDNET_HOME/dict -Ddblocation=/tmp/wordnetdb}}}. Here, replace the platform parameter with the correct `native` sub-folder containing the native libraries for your platform (e.g. `windows` for Win32bit or `windows/amd64` for 64bit etc.). Replace `$WORDNET_HOME` with the installation directory of WordNet from the previous step. And put whatever location you want for your brand new HGDB instance instead of '/tmp/wordnetdb'
   # Compile disko with `ant compile`. 
   # Make a test run by typing `ant run -Dplatform=linux/x86_64 -Dtext=test/trivial-corpus.txt -Ddblocation=/tmp/wordnetdb`. Again, replace the platform parameter to point to appropriate native libs for your platform, and the location of the HyperGraphDB instance if you put a different one above. You can also pass in some other text file to analyze or a single sentence. 
 
