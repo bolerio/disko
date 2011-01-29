@@ -1,0 +1,25 @@
+#summary Quick Guide on Setting Up Disko
+
+= Obtain from SVN =
+
+First, get the project latest version from Subversion:
+
+svn checkout http://disko.googlecode.com/svn/trunk/ disko
+
+= Directory Structure =
+
+All compile and runtime dependencies are part of the project directory structure. Build scripts and config file are at the top-level. The directories are as follows:
+
+|| *Directory Name* || *Description* ||
+|| data || Contains the various data files for all NLP processing tools that Disko uses: LinkGrammar, OpenNLP, GATE, Relex etc. ||
+|| src || Disko's own source code. ||
+|| lib || All Java dependencies. ||
+|| native || All native dependencies, further sub-divided by platform. ||
+|| test || Some test data and configuration files. ||
+|| xquery-lib || Some XQuery scripts for HTML information extraction. ||
+
+= Building =
+
+The code is build with the ANT build system. Use 'ant -p' to see the list of tasks. Type 'ant jar' to build the `disko.jar` file. 
+
+= Running =
