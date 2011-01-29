@@ -35,9 +35,10 @@
     <target name="run" description="Run Disko Test with diskorun.properties configuration">
         <java classname="disko.Disko" failonerror="true" fork="yes">
 		<jvmarg line="-Djava.library.path=native/${platform}"/>
+        <jvmarg line="-Dhgdb.location=${dblocation}"/>
         <classpath refid="disko.classpath"/>
         <arg line="diskorun.properties"/>
-		<arg line="test/trivial-corpus.txt"/>
+		<arg line="${text}"/>
         </java>
     </target>
 
