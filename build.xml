@@ -34,10 +34,19 @@
     
     <target name="run" description="Run Disko Test with diskorun.properties configuration">
         <java classname="disko.Disko" failonerror="true" fork="yes">
-		<jvmarg line="-Djava.library.path=native/linux/x86_64"/>
+		<jvmarg line="-Djava.library.path=native/${platform}"/>
         <classpath refid="disko.classpath"/>
         <arg line="diskorun.properties"/>
 		<arg line="test/trivial-corpus.txt"/>
+        </java>
+    </target>
+
+    <target name="create-wordnet-db" description="Create a HyperGraphDB instance with WordNet data">
+        <java classname="org.hypergraphdb.app.wordnet.HGWordNetLoader" failonerror="true" fork="yes">
+		<jvmarg line="-Djava.library.path=native/${platform}"/>
+        <classpath refid="disko.classpath"/>
+        <arg line="${dictionary}"/>
+		<arg line="${dblocation}"/>
         </java>
     </target>
 

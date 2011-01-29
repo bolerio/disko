@@ -1,0 +1,14 @@
+Approved Product Search
+
+You can search our database for products that have been approved for use on buildings in Miami-Dade County.
+
+To find a particular item, enter the Notice of Acceptance (NOA) number (i.e. 01-0712.04).
+
+Other search options are available to find related types of products. To search for a particular product type, click on Advanced Search. Check one, several or all search parameters (Applicant, Category, Subcategory, Material, Impact Rating and Maximum or Minimum Design Pressure).
+
+To begin your search, click on the "Query" button.
+
+The results of your query will be displayed in a table (best printed in landscape mode).
+
+To start a new search, use your browsers Back button to go back to the search page and click on "Reset" to clear your search parameters.
+
