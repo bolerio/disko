@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="jar" name="disko">
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="disko.classpath">
+        <pathelement location="bin"/>
+        <fileset dir="lib">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src/java" excludes="**/*.launch, **/*.testsuite, **/*.deploy, **/*.location, **/*.execution, **/*.datapool, **/*.artifact, **/*.html, **/*.svg, **/*.java"/>
+        </copy>
+    </target>
+
+    <target name="clean" description="Clean project">
+        <delete dir="bin"/>
+    </target>
+
+    <target depends="init" name="compile" description="Compile">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="src/java"/>
+            <classpath refid="disko.classpath"/>
+        </javac>
+    </target>
+
+    <target name="jar" depends="init" description="Create Disko Jar">
+        <jar basedir="bin" destfile="disko.jar"/>
+    </target>
+    
+    <target name="run" description="Run Disko Test with diskorun.properties configuration">
+        <java classname="disko.Disko" failonerror="true" fork="yes">
+		<jvmarg line="-Djava.library.path=native/linux/x86_64"/>
+        <classpath refid="disko.classpath"/>
+        <arg line="diskorun.properties"/>
+		<arg line="test/trivial-corpus.txt"/>
+        </java>
+    </target>
+
+</project>

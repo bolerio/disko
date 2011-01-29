@@ -1,0 +1,14 @@
+{
+"hasLocalStorage"	: true,
+"bootstrap" : [ {"class" : "org.hypergraphdb.peer.bootstrap.AffirmIdentityBootstrap", "config" : {}},
+                {"class" : "org.hypergraphdb.peer.bootstrap.CACTBootstrap", "config" : {}},
+                {"class" : "org.disco.flow.dist.DiskoBootstrap", "config" : {}}
+              ],
+"interfaceType"	: "org.hypergraphdb.peer.xmpp.XMPPPeerInterface",
+"peerName"	: "Peer",
+"interfaceConfig"		:
+{    
+	"serverUrl"	: "localhost",
+	"port"	: 5222
+}
+}

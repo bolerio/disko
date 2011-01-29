@@ -1,0 +1,18 @@
+{
+"processingNetwork" : "324e04c0-15e3-412c-98ba-d049d144d742",
+"isJobMaster" : true,
+"hasLocalStorage"	: true,
+"bootstrap" : [ {"class" : "org.hypergraphdb.peer.bootstrap.AffirmIdentityBootstrap", "config" : {}},
+                {"class" : "org.hypergraphdb.peer.bootstrap.CACTBootstrap", "config" : {}},
+                {"class" : "org.disco.flow.dist.DiskoBootstrap", "config" : {}}
+              ],
+"interfaceType"	: "org.hypergraphdb.peer.xmpp.XMPPPeerInterface",
+"peerName"	: "Peer",
+"interfaceConfig"		:
+{
+    "user" : "disko_master",
+    "password" : "password",
+	"serverUrl"	: "localhost",
+	"port"	: 5222,     
+}
+}
