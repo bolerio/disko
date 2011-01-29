@@ -50,6 +50,8 @@ public class MorphyHGDB extends MorphyJWNL
 	{
 		if (DU.isEmpty(hgdbLocation))
 			hgdbLocation = System.getProperty(MORPHY_HGDB_LOCATION);
+        if (DU.isEmpty(hgdbLocation))
+            hgdbLocation = System.getProperty("hgdb.location");		
 		if (!DU.isEmpty(hgdbLocation))
 			graph = HGEnvironment.get(hgdbLocation);
 		else
