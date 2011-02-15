@@ -36,7 +36,9 @@ Here, replace the platform parameter with the correct `native` sub-folder contai
 
 3. Compile disko with `ant compile`. 
 
-4. Make a test run by typing 
+4. Start the link grammar server. The link grammar parser (see http://www.abisource.com/projects/link-grammar) is run as a sockets based server rather inside the Java process, due to occasional crashes that bring down the JVM. You must start it by running link-grammar-server.sh on Linux/Cygwin or link-grammar-server.bat on Windows. Both scripts point to 32bit DLLs by default, so you must edit them to change the java.library.path JVM parameter if you're running on 64bits.
+
+5. Make a test run by typing 
 {{{
 ant run -Dplatform=linux/x86_64 -Dtext=test/trivial-corpus.txt -Ddblocation=/tmp/wordnetdb
 }}} 
