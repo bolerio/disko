@@ -1,5 +1,4 @@
 #!/bin/bash
-#VM_OPTS="-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n"
 
 LIBPATH=./native/linux
 CLASSPATH='-classpath lib/link-grammar.jar'

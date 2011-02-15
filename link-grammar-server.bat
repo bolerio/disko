@@ -1,7 +1,12 @@
-set DEBUG_OPTS=-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=9100
-set VM_OPTS=%DEBUG_OPTS% -Djava.library.path=native/windows -Drelex.linkparserpath=data/linkparser/ 
-set JAVA_HOME=c:\java5
+REM set JAVA_HOME if you don't have it your environment
+rem set JAVA_HOME=c:/java6_32bit
+set LIBPATH=./native/windows
+set CLASSPATH=-classpath lib/link-grammar.jar
+set PORT=9000
+
+REM on window, dependent DLLs are found only when set in the global path var
+set PATH=%LIBPATH%;%PATH%
 
 :RUNLP
-%JAVA_HOME%\bin\java  %VM_OPTS% -cp lib\relex.jar;lib\link-grammar.jar relex.parser.LinkParserServer %1
+%JAVA_HOME%\bin\java %CLASSPATH%  org.linkgrammar.LGService -verbose -threads 5 %PORT% ./data/linkparser
 goto RUNLP
