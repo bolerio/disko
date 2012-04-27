@@ -12,10 +12,10 @@
 package disko.flow.dist;
 
 import java.util.Map;
+
 import java.util.UUID;
 
 import org.hypergraphdb.HGHandle;
-import org.hypergraphdb.HGPersistentHandle;
 import org.hypergraphdb.HGPlainLink;
 import org.hypergraphdb.HGQuery.hg;
 import org.hypergraphdb.algorithms.CopyGraphTraversal;
@@ -79,7 +79,7 @@ public class DiskoManageActivity extends FSMActivity
 
     private static int createCount = 0;
     
-    private Mapping<Pair<HGPersistentHandle, Object>, HGPersistentHandle> atomFinder = null;
+    private Mapping<Pair<HGHandle, Object>, HGHandle> atomFinder = null;
     
     public DiskoManageActivity(HyperGraphPeer thisPeer)
     {
@@ -339,12 +339,12 @@ public class DiskoManageActivity extends FSMActivity
 //    		super.onPeerNotUnderstand(msg);
     }
     
-    public void setAtomFinder(Mapping<Pair<HGPersistentHandle, Object>, HGPersistentHandle> atomFinder)
+    public void setAtomFinder(Mapping<Pair<HGHandle, Object>, HGHandle> atomFinder)
     {
         this.atomFinder = atomFinder;
     }
     
-    public Mapping<Pair<HGPersistentHandle, Object>, HGPersistentHandle> getAtomFinder()
+    public Mapping<Pair<HGHandle, Object>, HGHandle> getAtomFinder()
     {
         return this.atomFinder;
     }

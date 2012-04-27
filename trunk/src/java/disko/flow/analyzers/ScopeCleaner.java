@@ -27,7 +27,7 @@ import disko.data.relex.SynRel;
 /**
  * 
  * <p>
- * This processor is performs a cleanup activity intended to be run at
+ * This processor performs a cleanup activity intended to be run at
  * the beginning of an IE (information extraction) network. It deletes
  * all scoped data within a given document. It assumes that the current
  * scope of the {@link AnalysisContext} is the document to be cleaned. 

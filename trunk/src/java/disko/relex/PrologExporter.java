@@ -141,24 +141,6 @@ public class PrologExporter
 			throw new RuntimeException("Unknown occurrence argument type: " + x.getClass());		
 	}
 		
-	private Struct occurrenceToStruct(AnalysisContext<?> ctx, RelOccurrence occ)
-	{
-		int offset = 0; // getOffset(ctx, occ);
-		Term [] terms = new Term[occ.getArity() - 1];
-		for (int i = 0; i < terms.length; i++)
-		{
-			HGHandle argHandle = occ.getTargetAt(i + 1);
-			Object arg = ctx.getGraph().get(argHandle);
-			if (arg == null)
-				throw new RuntimeException("Null occurrence argument at pos " + i + " for " + occ);			
-			String fname = getFunctorName(arg);
-			terms[i] = new Struct(fname, 
-								  new alice.tuprolog.Int(offset + occ.getPosition(i)), 
-								  new HGAtomTerm(argHandle, ctx.getGraph()));
-		}
-		return new Struct(getFunctorName(ctx.getGraph().get(occ.getTargetAt(0))), terms);
-	}
-
 	private Struct exportFlatRelations(AnalysisContext<?> ctx, 
 									  Map<Pair<String, Integer>, Term> words, 
 									  RelOccurrence occ)
@@ -207,6 +189,40 @@ public class PrologExporter
 	public Theory getPrologTheory(AnalysisContext<?> ctx)
 	{
 		return getPrologTheory(ctx, ctx.find(RelOccurrence.class));
+	}
+
+	public Struct toPlainStruct(HyperGraph graph, RelOccurrence occ)
+	{
+		int offset = 0; // getOffset(ctx, occ);
+		Term [] terms = new Term[occ.getArity() - 1];
+		for (int i = 0; i < terms.length; i++)
+		{
+			HGHandle argHandle = occ.getTargetAt(i + 1);
+			Object arg = graph.get(argHandle);
+			if (arg == null)
+				throw new RuntimeException("Null occurrence argument at pos " + i + " for " + occ);			
+			String fname = getFunctorName(arg);
+			terms[i] = new Struct(fname);
+		}
+		return new Struct(getFunctorName(graph.get(occ.getTargetAt(0))), terms);
+	}
+	
+	public Struct occurrenceToStruct(HyperGraph graph, RelOccurrence occ)
+	{
+		int offset = 0; // getOffset(ctx, occ);
+		Term [] terms = new Term[occ.getArity() - 1];
+		for (int i = 0; i < terms.length; i++)
+		{
+			HGHandle argHandle = occ.getTargetAt(i + 1);
+			Object arg = graph.get(argHandle);
+			if (arg == null)
+				throw new RuntimeException("Null occurrence argument at pos " + i + " for " + occ);			
+			String fname = getFunctorName(arg);
+			terms[i] = new Struct(fname, 
+								  new alice.tuprolog.Int(offset + occ.getPosition(i)), 
+								  new HGAtomTerm(argHandle, graph));
+		}
+		return new Struct(getFunctorName(graph.get(occ.getTargetAt(0))), terms);
 	}
 	
 	/**
@@ -269,7 +285,7 @@ public class PrologExporter
 				result = new Struct(wordTerm, result);
 		}
 		else for (RelOccurrence occ : occurrences)
-				result = new Struct(occurrenceToStruct(ctx, occ), result); 
+				result = new Struct(occurrenceToStruct(ctx.getGraph(), occ), result); 
 		try 
 		{ 
 			Theory t = new Theory(result);

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LIBPATH=./native/linux
+LIBPATH=./native/windows
 CLASSPATH='-classpath lib/link-grammar.jar'
 PORT=9000
 

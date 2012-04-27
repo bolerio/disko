@@ -28,6 +28,7 @@ import javax.script.SimpleScriptContext;
 import org.hypergraphdb.peer.HGPeerIdentity;
 import org.hypergraphdb.peer.HyperGraphPeer;
 import org.hypergraphdb.peer.Message;
+import org.hypergraphdb.peer.Messages;
 import org.hypergraphdb.peer.Performative;
 import org.hypergraphdb.peer.workflow.Activity;
 
@@ -267,7 +268,7 @@ public class ScriptShellActivity extends Activity
         ScriptShellActivity act = (ScriptShellActivity)thisPeer.getActivityManager().getActivity(ID);
         if (act == null)
             throw new RuntimeException("Cannot execute remote script since there's no local ScriptShell activity running.");
-        Message msg = createMessage(Performative.Request, act);
+        Message msg = Messages.createMessage(Performative.Request, act);
         Integer evalId = act.expressionId.incrementAndGet();
         if (bindings != null)
         {

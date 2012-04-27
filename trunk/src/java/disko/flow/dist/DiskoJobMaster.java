@@ -14,6 +14,7 @@ package disko.flow.dist;
 import java.util.Collection;
 
 
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +27,6 @@ import static org.hypergraphdb.peer.Structs.*;
 
 import org.hypergraphdb.HGEnvironment;
 import org.hypergraphdb.HGHandle;
-import org.hypergraphdb.HGPersistentHandle;
 import org.hypergraphdb.HyperGraph;
 import org.hypergraphdb.HGQuery.hg;
 import org.hypergraphdb.app.dataflow.DistributedException;
@@ -332,12 +332,12 @@ public class DiskoJobMaster
     	}
     }
     
-    public static class AtomFinder implements Mapping<Pair<HGPersistentHandle, Object>, HGPersistentHandle>
+    public static class AtomFinder implements Mapping<Pair<HGHandle, Object>, HGHandle>
     {
         HyperGraph graph;
         public AtomFinder(HyperGraph graph) { this.graph = graph; }
         
-        public HGPersistentHandle eval(Pair<HGPersistentHandle, Object> p)
+        public HGHandle eval(Pair<HGHandle, Object> p)
         {
         	if (graph.get(p.getFirst()) != null)
         		return p.getFirst();
