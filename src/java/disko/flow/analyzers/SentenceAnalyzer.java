@@ -106,9 +106,14 @@ public class SentenceAnalyzer extends AbstractProcessor<AnalysisContext<TextDocu
         List<TextInterval> lst = splitter.process(text);
         for (TextInterval ivl : lst)
         {
+        	 // When fed garbage, the splitter will sometimes produces garbage.
+        	if (ivl.getStart() < 0 || ivl.getEnd() < 0) 
+        		continue;
             String trimmedSentence = text.substring(ivl.getStart(),
                                                     ivl.getEnd());
-            trimmedSentence = trimmedSentence.replaceAll("\n", " ");
+            trimmedSentence = trimmedSentence.replaceAll("\n", " ").trim();
+            if (trimmedSentence.length() == 0)
+            	continue;
             SentenceAnn ann = new SentenceAnn(ivl.getStart() + offset,
                                               ivl.getEnd() + offset,
                                               trimmedSentence);

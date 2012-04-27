@@ -1,5 +1,5 @@
 REM set JAVA_HOME if you don't have it your environment
-rem set JAVA_HOME=c:/java6_32bit
+set JAVA_HOME=c:/java6_32bit
 set LIBPATH=./native/windows
 set CLASSPATH=-classpath lib/link-grammar.jar
 set PORT=9000
