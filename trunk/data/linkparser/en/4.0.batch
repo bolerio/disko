@@ -5,6 +5,8 @@
 !batch
 !short=20
 !constituents=1
+!spell=0
+!use-fat=0
 
 %NOUNS
 
@@ -28,6 +30,9 @@ He is the kind of person who would do that
 An income tax increase may be necessary
 *A tax on income increase may be necessary
 Last week I saw a great movie
+
+% currently finds a parse with roman numeral I
+% i.e. "Last Dog the First saw a great movie" 
 *Last dog I saw a great movie
 The party that night was a big success
 *The party that dog was a big success
@@ -823,7 +828,9 @@ I went to the store and got a gallon of milk
 *I got and went a gallon of milk
 I got a gallon of milk and some eggs
 I went to the store, got a gallon of milk, and returned the eggs
-*I went to the store, got a gallon of milk, and some eggs
+
+% Sentence belwo was marked bad, but this seems arguable to me .. !?
+% *I went to the store, got a gallon of milk, and some eggs
 Mary, Joe and Louise are coming to the party
 Neither Mary nor Louise are coming to the party
 I am ready and eager to go to the party
@@ -843,7 +850,10 @@ The sky is blue, so it is likely that Joe will come
 That is the man for whom and with whom Joe works
 *That is the man for whom and with Janet Joe works
 *When did Joe and John did leave the party
-My dog, cat, and cousin's friend came
+
+% Huh ??? what's the correct parse/meaning of this sentence?
+% "my dog's freind came" is one of the parses !!?? wtf .. 
+% My dog, cat, and cousin's friend came
 *My dog, cat, horse, mouse, and his cow left
 My dog, cat, horse, and mouse, and his cow left
 you should not only ask for your money back, but demand it

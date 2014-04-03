@@ -14,11 +14,13 @@
 's 're 've 'd 'll 'm ’s ’re ’ve ’d ’ll ’m
 ¢ ™: RPUNC+; 
 
-"(" "{" "[" "<" « 〈 〔 《 【 『 "``" „ “ ‘ ''.x '.x
+"(" "{" "[" "<" « 〈 〔 《 【 『 `` „ “ ‘ ''.x '.x
 "$" US$ USD C$ £ ₤ € ₳ ฿ ₵ ₡ ₢ ₫ ₣ ₴ ₭ ℳ  ₥  ₦ ₧ ₰ ₨  ₪ ৳ ₮ ₩ ¥ 호점
 † †† ‡ § ¶ © № "#": LPUNC+;
 
 /en/words/units.1: UNITS+;
-/en/words/units.2: UNITS+;
+/en/words/units.1.dot: UNITS+;
 /en/words/units.3: UNITS+;
+/en/words/units.4: UNITS+;
+/en/words/units.4.dot: UNITS+;
 

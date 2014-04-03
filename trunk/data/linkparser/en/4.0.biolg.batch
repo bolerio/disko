@@ -4,6 +4,7 @@
 !batch
 !short=20
 !constituents=1
+!spell=0
 
 %UNITS
 
@@ -74,6 +75,7 @@ The gene 1 to 7 mRNA synthesis was reduced
 There are  deviations of 2 to 3 A 
 % the range should link to the verb with MVp (~ "north"): to much ambiguous ?
 These transcripts are located 5 to 3
+These transcripts are located 5' to 3'
 
 % Ranges with hyphens
 
