@@ -28,7 +28,7 @@
         </javac>
     </target>
 
-    <target name="jar" depends="init" description="Create Disko Jar">
+    <target name="jar" depends="compile" description="Create Disko Jar">
         <jar basedir="bin" destfile="disko.jar"/>
     </target>
     
