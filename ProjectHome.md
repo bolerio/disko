@@ -1,0 +1,1 @@
+A complete end-to-end solution for NLP document analysis and search engine for English. Based on existing technologies such as link grammar, relex and HyperGraphDB.

@@ -1,0 +1,4 @@
+  1. The DataFlowNetwork instance is stored as a HGDB atom (normally a Java bean record) with a handle, say, `networkHandle`.
+  1. Each processor node is also stored as a HGDB atom.
+  1. For each processor node with handle `processorHandle` a `HGPlainLink` is created. If the node is running locally the link has the form [networkHandle, processorHandle]. If the node is running at another HGDB peer with identity `peerIdentityHandle`, the link has the form [networkHandle, processorHandle, peerIdentityHandle].
+  1. Each channel is stored as a `ChannelLink`, which is a variant of `HGBergeLink` that also contains the `Channel` instance (holding information such as capacity, end-of-stream token etc.). The "head" of `ChannelLink` is the set of input processors while the tail is the set of output processors.

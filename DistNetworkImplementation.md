@@ -1,0 +1,3 @@
+The implementation relies on the distributed HGDB framework for managing network communication, list of peers and asynchronous activities.
+
+To each dataflow network instance there is a corresponding HGDB peer activity implemented by the NetworkPeerActivity class. This activity handles all channel communication for the network. The ID of the activity is the persistent handle UUID of the network atom.
